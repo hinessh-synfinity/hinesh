@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import BlogCard from './blogcard';
+import React from 'react';
 
 
 
@@ -33,6 +35,10 @@ function App() {
     borderRadius: '5px',
     boxSizing: 'border-box',
     boxShadow: '0  2px 5px #ccc',
+
+  }
+  const onHidebuttonclick = () => {
+    alert('Button clicked');
   }
   return (
     <div className="App">
@@ -51,7 +57,12 @@ function App() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
       </div>
 
+       <BlogCard />
+
+       <button onClick={onHidebuttonclick}>Hide button</button>
+
     </div>
+
 
   );
 }
