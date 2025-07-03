@@ -1,5 +1,4 @@
 .divStyle {
-  
   margin: 13px;
   border: 1px solid black;
   padding: 16px;
@@ -7,12 +6,9 @@
   background-color: lightblue;
 }
 
-
-
-@media (max-width:778px) {
-    .divStyle{
-      width: 40%;
-      display: inline-block;
-    }
-    
+@media (max-width: 778px) {
+  .divStyle {
+    width: 40%;
+    display: inline-block;
+  }
 }

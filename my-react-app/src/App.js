@@ -8,15 +8,21 @@ import {isArrayEmpty} from './utils'
 
 
 
-
-
-
 class App extends Component {
 
   state ={
     showBlog : true
   }
   // const blogArr = null
+
+  onLikeBtnclick = (pos) => {
+    const updateBlogList = this.state.blogArr;
+    const updateBlogObj = updateBlogList[pos];
+
+   
+
+    console.log(updateBlogObj);
+  }
    blogArr = [
     {
       title: "Heading 1",
@@ -42,7 +48,7 @@ class App extends Component {
 
 
     return (
-      <BlogCard key={pos} title={item.title} description={item.description} />
+      <BlogCard key={pos} title={item.title} description={item.description} onLikeBtnclick ={() => this.onLikeBtnclick(pos)}/>
       // <div className='divStyle'>
 
       //   <h1> {item.title}</h1>
@@ -69,10 +75,11 @@ showBlog=true
 
 
  render(){  
+  console.log('Render Called')
    return (
     <div className="App">
       <h1>Learn React</h1>
-      <button onClick= {this.onHideBtnClick}>Hide</button>
+      <button onClick= {this.onHideBtnClick}>{this.state.showBlog ? 'Hide List' :'Show List'}</button>
       <button onClick= {this.onShowBtnClick}>Show</button>
       <br></br>
       {
