@@ -1,15 +1,21 @@
-import React from "react"
+import {Clogs} from './utils'
 
-import { dumpLogs } from "./utils";
 
-const BlogCard = (props) => {
-    dumpLogs(props);
+import cssclass from './blogCardmodule.css'
+
+
+const blogCard = (properties) => {
+
+    Clogs('hello')
     return (
-        <div className="BlogCard">
-            <h3>Blog title</h3>
-            <p>Blog Description</p>
+        <div className={cssclass.divStyle}>
+
+            <h1> {properties.title}</h1>
+
+            <p>{properties.description}</p>
+
         </div>
     )
 }
 
-export default BlogCard;
+export default blogCard;

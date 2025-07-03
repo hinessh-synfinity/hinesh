@@ -1,70 +1,92 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import  {Component} from 'react';
 import './App.css';
-import BlogCard from './blogcard';
-import React from 'react';
+
+import BlogCard from './blogcard';  
+
+import {isArrayEmpty} from './utils'
 
 
 
-// function App() {
-//   const firstName = 'Hinesh';
-//   const lastName = 'Dhameliya';
-//   const Age = 20;
-//   const job = 'Web';
 
-//   const myarray = [1, 2, 3, 4, 5];
-//   return (
-//     <div className="App">
-//       <h3>Full Name:{firstName} {lastName}</h3>
-//       <p>Age:{Age}</p>
-//       <p>Job:{job}</p>
-//       <input placeholder='Enter your name'></input>
 
-//       {myarray[0]}
 
-//       {
-//         myarray[0] >= 1 ? "True" : "False"
-//       }
-//     </div>
-//   );
-// }
+class App extends Component {
 
-function App() {
-  const style = {
-    margin: '16px',
-    padding: '16px',
-    borderRadius: '5px',
-    boxSizing: 'border-box',
-    boxShadow: '0  2px 5px #ccc',
+  state ={
+    showBlog : true
+  }
+  // const blogArr = null
+   blogArr = [
+    {
+      title: "Heading 1",
+      description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
+    },
+    {
+      title: "Heading 2",
+      description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
+    },
+
+    {
+      title: "Heading 3",
+      description: "In React, a div element functions similarly to a standard HTML div,serving as a generic container for other elements."
+    }
+
+  ]
+ 
+   
+
+   blogCard = isArrayEmpty(this.blogArr) ?['hello'] : this.blogArr.map((item,pos) => {
+    // console.log(item)
+
+
+
+    return (
+      <BlogCard key={pos} title={item.title} description={item.description} />
+      // <div className='divStyle'>
+
+      //   <h1> {item.title}</h1>
+
+      //   <p>{item.description} </p>
+
+      // </div>
+    )
+
+  })
+
+  onHideBtnClick=()=>{
+    this.setState({showBlog:false})
+
+    console.log(this.showBlog)
+  }
+  onShowBtnClick=()=>{
+    this.setState({showBlog:true})
 
   }
-  const onHidebuttonclick = () => {
-    alert('Button clicked');
-  }
-  return (
+
+  // const blogCard1 =  <BlogCard/>
+showBlog=true
+
+
+ render(){  
+   return (
     <div className="App">
-      <div style={style}>
-        <h3>blog title 1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-      </div>
+      <h1>Learn React</h1>
+      <button onClick= {this.onHideBtnClick}>Hide</button>
+      <button onClick= {this.onShowBtnClick}>Show</button>
+      <br></br>
+      {
+      this.state.showBlog ? this.blogCard :null
+      }
+      {/* {blogCard1} */}
 
-      <div style={style}>
-        <h3>blog title 2</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-      </div>
 
-      <div style={style}>
-        <h3>blog title 3</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-      </div>
-
-       <BlogCard />
-
-       <button onClick={onHidebuttonclick}>Hide button</button>
 
     </div>
 
 
   );
+ }
 }
 
 export default App;

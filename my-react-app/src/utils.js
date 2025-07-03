@@ -1,13 +1,16 @@
-const isArrayisEmpty = (arr) => {
- if(arr !== undefined && arr !== null && arr.lenght >0) {
+const isArrayEmpty =(arr)=>{
+    if(arr !== undefined && arr !== null && arr.length > 0) {
+        return false;
+    }
+
+
     return true;
- }
-  return false;
+}
 
- }
 
- const dumpLogs = (message) => {
-    console.log(message);
- }
+const Clogs =(msg)=>{
+   console.log(msg)
+}
 
- export {isArrayisEmpty, dumpLogs}
+
+export {isArrayEmpty , Clogs}
